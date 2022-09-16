@@ -11,7 +11,15 @@ import {
   Button,
   CardActionArea,
 } from '@mui/material';
-
+type props = {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  price: number;
+  rating: { count:number };
+  description:string;
+};
 export default function CardItem({
   id,
   title,
@@ -20,7 +28,7 @@ export default function CardItem({
   price,
   rating: { count },
   description,
-}): JSX.Element {
+}: props) {
   const { addToCart } = useGlobalContext();
   const [readMore, setReadMore] = useState(false);
 

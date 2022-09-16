@@ -14,29 +14,32 @@ const AppContext = createContext({} as cartContext);
 type appProviderProps = {
   children: ReactNode;
 };
-type CartItem = {
-  id: number;
-  quantity: number;
-};
+// type CartItem = {
+//   id: number;
+//   title: string;
+//   quantity: number;
+//   image: string;
+//   price:number
+// };
 type cartContext = {
   products: any[];
   increaseCartQuantity: (id: number) => void;
+  addToCart: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
-  addToCart: (id: number) => void;
   cartQuantity: number;
-  cartItems: CartItem[];
+  cartItems: any[];
 };
 
 const AppProvider = ({ children }: appProviderProps) => {
-  const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+  const [products, setProducts] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<any[]>(
     'shopping cart',
     []
   );
 
   function addToCart(id: number) {
-    let addedItem = products.find((item) => item.id === id);
+    let addedItem: any = products.find((item) => item.id === id);
     if (cartItems.find((item) => item.id === id)) {
       console.log('item already in the cart');
     } else {

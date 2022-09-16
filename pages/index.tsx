@@ -3,7 +3,6 @@ import {Container,Grid} from '@mui/material'
 import  CardItem  from '../components/Card';
 import Layout from '../components/Layout';
 import { useGlobalContext } from '../context/context';
-import { useState } from 'react';
 const Home: NextPage = () => {
       const { products } = useGlobalContext();
 

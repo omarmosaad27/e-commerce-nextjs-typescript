@@ -8,8 +8,12 @@ import {
   Toolbar,
   Badge,
 } from '@mui/material';
+type props = {
+  title: string;
+  children: any;
+}
 import { useGlobalContext } from '../context/context';
-function Layout({ title, children }): JSX.Element {
+function Layout({ title, children }: props): JSX.Element {
   const { cartQuantity } = useGlobalContext();
 
   return (
